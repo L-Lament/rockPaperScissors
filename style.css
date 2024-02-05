@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px;
+    width: 100%;
+    align-content: flex-start;
+    
+}
+
+button {
+    border-radius: 10px;
+    height: 33%;
+    width: 100px;
+    align-self: start;
+
+}
