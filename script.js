@@ -1,3 +1,7 @@
+
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scisssors = document.getElementById('scissors')
 const rockPaperScissors = ['rock', 'paper', 'scissors'];
 let computerChoice;
 let userChoice;
@@ -32,6 +36,10 @@ const userInput = () => {
     return userChoice
 };
 
+
+
+
+
 //compare inputs
 const singleRound = (computerChoice, userChoice) => {
     if (userChoice !== computerChoice){
@@ -55,36 +63,47 @@ const singleRound = (computerChoice, userChoice) => {
                 return winner;
             };
             winner = 'draw';
+            console.log(winner);
             return winner;
         };
+        
+        //run a game best of five
+ const playGame = () => {
+ while (roundNumber < Infinity){
+     singleRound(computerInput(), userInput())
+     if (userScore === 3){
+         gameWinner = 'Player Wins!!'
+         break
+         }
+         if (computerScore === 3){
+             gameWinner = 'Computer Wins!!'
+             break
+         }
+         roundNumber += 1;
+         console.log(winner);
+         console.log(computerScore);
+         console.log(userScore);
+     };
+     if (userScore > computerScore) {
+         gameWinner = 'Player Wins!!';
+     };
+     if (computerScore > userScore) {
+         gameWinner = 'Computerer Wins!!';
+     };
+     if (userScore == computerScore) {
+         gameWinner = 'Draw...';
+     };
+ };
 
-//run a game best of five
-const playGame = () => {
-    while (roundNumber < Infinity){
-        singleRound(computerInput(), userInput())
-        if (userScore === 3){
-            gameWinner = 'Player Wins!!'
-            break
-        }
-        if (computerScore === 3){
-            gameWinner = 'Computer Wins!!'
-            break
-        }
-        roundNumber += 1;
-        console.log(winner);
-        console.log(computerScore);
-        console.log(userScore);
-    };
-    if (userScore > computerScore) {
-        gameWinner = 'Player Wins!!';
-    };
-    if (computerScore > userScore) {
-        gameWinner = 'Computerer Wins!!';
-    };
-    if (userScore == computerScore) {
-        gameWinner = 'Draw...';
-    };
-};
-
-
-console.log(gameWinner);
+ rock.addEventListener('click', () =>{
+    singleRound(computerInput(), 'rock')
+    console.log(winner);
+ })
+ paper.addEventListener('click', () =>{
+    singleRound(computerInput(), 'paper')
+    console.log(winner);
+})
+scisssors.addEventListener('click', () =>{
+    singleRound(computerInput(), 'scissors')
+    console.log(winner);
+ })
