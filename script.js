@@ -113,6 +113,19 @@ const singleRound = (computerChoice, userChoice) => {
             HTMLBody.append(winMessage)
         }
  }
+ const displayUserScore = document.getElementById('playerScore')
+ const displayComputerScore = document.getElementById('computerScore')
+ const trackUserScore = document.createElement('p')
+ const trackComputerScore = document.createElement('p')
+ displayComputerScore.appendChild(trackComputerScore)
+ displayUserScore.appendChild(trackUserScore)
+ trackUserScore.setAttribute('id', 'trackedUserScore')
+ trackComputerScore.setAttribute('id', 'trackedComputerScore')
+ 
+ const updateScore = () => {
+     trackUserScore.textContent = userScore
+     trackComputerScore.textContent = computerScore
+ }
 
  rock.addEventListener('click', () =>{
     singleRound(computerInput(), 'rock')
@@ -125,7 +138,7 @@ const singleRound = (computerChoice, userChoice) => {
         
         roundWinner.innerText = winner
     }
-    
+    updateScore()
     checkScore()
 })
 
@@ -142,6 +155,7 @@ paper.addEventListener('click', () =>{
         
         roundWinner.innerText = winner
     }
+    updateScore()
     checkScore()
     
 })
