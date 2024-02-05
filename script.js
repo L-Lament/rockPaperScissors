@@ -22,6 +22,7 @@ const computerInput = () => {
     };
     return computerChoice;
 };
+
 //Get userInput
 const userInput = () => {
     userChoice = prompt('Choose rock, paper, or scissors').toLowerCase();
@@ -56,7 +57,7 @@ const singleRound = (computerChoice, userChoice) => {
             winner = 'draw';
             return winner;
         };
-// singleRound(computerInput(), userInput())
+
 //run a game best of five
 const playGame = () => {
     while (roundNumber < Infinity){
@@ -85,5 +86,5 @@ const playGame = () => {
     };
 };
 
-playGame();
+
 console.log(gameWinner);
