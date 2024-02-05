@@ -2,6 +2,15 @@
     box-sizing: border-box;
     margin: 0 auto;
 }
+body{
+    height: 100vh;
+}
+#container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+}
 
 #buttonContainer {
     display: flex;
@@ -9,9 +18,54 @@
     flex-direction: column;
     justify-content: space-between;
     height: 500px;
-    width: 100%;
+    width: 25%;
+    height: 100%;
     align-content: flex-start;
     
+}
+
+#buttonContainer button {
+    width: 100%;
+    font-size: xx-large;
+}
+
+#gameContainer{
+    width: 75%;
+    height: 100%;
+    text-align: center;
+}
+
+#gameContainer h1 {
+    padding-top: 30px;
+    text-align: center;
+}
+
+#resultsDiv {
+    height: 80%;
+}
+
+#scoreContainer {
+    display: flex;
+    height: 65vh;
+    flex-wrap: wrap;
+    padding-top: 15vh;
+}
+#roundWinner {
+    height: 35vh;
+    margin-top: 50px;
+}
+
+#playerScore{
+    width: 37.5%;
+}
+
+#computerScore{
+    width: 37.5%;
+}
+
+#scoreContainer p {
+    font-size: 100px;
+    padding-top: 100px;
 }
 
 button {
@@ -20,4 +74,11 @@ button {
     width: 100px;
     align-self: start;
 
+}
+
+#winMessage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
 }
