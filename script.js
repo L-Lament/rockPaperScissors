@@ -1,4 +1,4 @@
-
+//Main Variable declaration
 const rock = document.getElementById('rock')
 const paper = document.getElementById('paper')
 const scisssors = document.getElementById('scissors')
@@ -11,6 +11,8 @@ let computerScore = 0;
 const winScore = 3;
 let winner;
 let gameWinner;
+const roundWinner = document.createElement('h1')
+const results = document.getElementById('resultsDiv')
 
 //get computerInput
 const computerInput = () => {
@@ -67,43 +69,93 @@ const singleRound = (computerChoice, userChoice) => {
             return winner;
         };
         
-        //run a game best of five
- const playGame = () => {
- while (roundNumber < Infinity){
-     singleRound(computerInput(), userInput())
-     if (userScore === 3){
-         gameWinner = 'Player Wins!!'
-         break
-         }
-         if (computerScore === 3){
-             gameWinner = 'Computer Wins!!'
-             break
-         }
-         roundNumber += 1;
-         console.log(winner);
-         console.log(computerScore);
-         console.log(userScore);
-     };
-     if (userScore > computerScore) {
-         gameWinner = 'Player Wins!!';
-     };
-     if (computerScore > userScore) {
-         gameWinner = 'Computerer Wins!!';
-     };
-     if (userScore == computerScore) {
-         gameWinner = 'Draw...';
-     };
- };
+//run a game best of five
+//  const playGame = () => {
+//  while (roundNumber < Infinity){
+//      singleRound(computerInput(), userInput())
+//      if (userScore === 3){
+//          gameWinner = 'Player Wins!!'
+//          break
+//          }
+//          if (computerScore === 3){
+//              gameWinner = 'Computer Wins!!'
+//              break
+//          }
+//          roundNumber += 1;
+//          console.log(winner);
+//          console.log(computerScore);
+//          console.log(userScore);
+//      };
+//      if (userScore > computerScore) {
+//          gameWinner = 'Player Wins!!';
+//      };
+//      if (computerScore > userScore) {
+//          gameWinner = 'Computerer Wins!!';
+//      };
+//      if (userScore == computerScore) {
+//          gameWinner = 'Draw...';
+//      };
+//  };
+
+ //Events
+ const checkScore = () => {
+     const winMessage = document.createElement('p')
+     winMessage.setAttribute('id', 'winMessage')
+     winMessage.textContent = `${winner} wins the game!`
+     
+     let HTMLBody = document.querySelector('body')
+     if (userScore == 5) {
+         HTMLBody.innerHTML = ''
+         HTMLBody.append(winMessage)
+        }
+        if (computerScore == 5) {
+            HTMLBody.innerHTML = ''
+            HTMLBody.append(winMessage)
+        }
+ }
 
  rock.addEventListener('click', () =>{
     singleRound(computerInput(), 'rock')
-    console.log(winner);
- })
- paper.addEventListener('click', () =>{
+    console.log(roundWinner.textContent)
+    if (roundWinner.textContent === '') {
+        results.appendChild(roundWinner)
+    }
+    roundWinner.innerText = `${winner} wins the round!`
+    if (winner === 'draw') {
+        
+        roundWinner.innerText = winner
+    }
+    
+    checkScore()
+})
+
+
+
+paper.addEventListener('click', () =>{
     singleRound(computerInput(), 'paper')
-    console.log(winner);
+    console.log(roundWinner.textContent)
+    if (roundWinner.textContent === '') {
+        results.appendChild(roundWinner)
+    }
+    roundWinner.innerText = `${winner} wins the round!`
+    if (winner === 'draw') {
+        
+        roundWinner.innerText = winner
+    }
+    checkScore()
+    
 })
 scisssors.addEventListener('click', () =>{
     singleRound(computerInput(), 'scissors')
-    console.log(winner);
- })
+    console.log(roundWinner.textContent)
+    if (roundWinner.textContent === '') {
+        results.appendChild(roundWinner)
+    }
+    roundWinner.innerText = `${winner} wins the round!`
+    if (winner === 'draw') {
+        
+        roundWinner.innerText = winner
+    }
+    checkScore()
+    
+})
