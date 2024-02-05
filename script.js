@@ -12,6 +12,7 @@ const winScore = 3;
 let winner;
 let gameWinner;
 const roundWinner = document.createElement('h1')
+roundWinner.setAttribute('id', 'roundWinner')
 const results = document.getElementById('resultsDiv')
 
 //get computerInput
